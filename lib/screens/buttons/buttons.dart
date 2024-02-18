@@ -21,6 +21,14 @@ class FirstButton extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           decoration: BoxDecoration(
+            boxShadow: const [
+              BoxShadow(
+                color: AppColor.buttonShadow,
+                spreadRadius: 0,
+                blurRadius: 24,
+                offset: Offset(4, 8),
+              ),
+            ],
             color: AppColor.mainLightGreen,
             borderRadius: BorderRadius.circular(16),
           ),
@@ -28,7 +36,8 @@ class FirstButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 22.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 16.0),
                   child: text),
             ],
           ),
@@ -58,6 +67,14 @@ class SecondButton extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           decoration: BoxDecoration(
+            boxShadow: const [
+              BoxShadow(
+                color: AppColor.buttonShadow,
+                spreadRadius: 0,
+                blurRadius: 24,
+                offset: Offset(4, 8),
+              ),
+            ],
             color: AppColor.mainLightGreen,
             borderRadius: BorderRadius.circular(16),
           ),
@@ -65,7 +82,8 @@ class SecondButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 22.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 16.0),
                   child: text),
             ],
           ),
@@ -95,6 +113,14 @@ class ThirdButton extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           decoration: BoxDecoration(
+            boxShadow: const [
+              BoxShadow(
+                color: AppColor.buttonShadow,
+                spreadRadius: 0,
+                blurRadius: 24,
+                offset: Offset(4, 8),
+              ),
+            ],
             color: AppColor.mainLightGreen,
             borderRadius: BorderRadius.circular(16),
           ),
@@ -102,7 +128,8 @@ class ThirdButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 22.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 20.0, horizontal: 16.0),
                   child: text),
             ],
           ),

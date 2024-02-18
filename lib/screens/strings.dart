@@ -8,7 +8,7 @@ abstract class AppStrings {
   static const Text firstButton = Text(
     'Получить код 1',
     style: TextStyle(
-        fontFamily: 'Lato',
+        fontFamily: 'Lato-Bold',
         fontWeight: FontWeight.w700,
         fontSize: 15.0,
         color: Colors.white),
@@ -16,7 +16,7 @@ abstract class AppStrings {
   static const Text secondButton = Text(
     'Получить код 2',
     style: TextStyle(
-        fontFamily: 'Lato',
+        fontFamily: 'Lato-Bold',
         fontWeight: FontWeight.w700,
         fontSize: 15.0,
         color: Colors.white),
@@ -24,7 +24,7 @@ abstract class AppStrings {
   static const Text thirdButton = Text(
     'Получить код 3',
     style: TextStyle(
-        fontFamily: 'Lato',
+        fontFamily: 'Lato-Bold',
         fontWeight: FontWeight.w700,
         fontSize: 15.0,
         color: Colors.white),

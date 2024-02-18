@@ -4,7 +4,7 @@ abstract class AppColor{
   static const Color mainLightGreen = Color(0xff57704F);
   static const Color SecondaryGreen = Color(0xff333F33);
   static const Color color3 = Color(0xffC7B8B1);
-  static const Color color4 = Color(0xffF1F4EF);
+  static const Color buttonShadow = Color(0xffF1F4EF);
   static const Color mainDarkGreen = Color(0xff041304);
   static const Color color6 = Color(0xffF5F5F5);
   static const Color color7 = Color(0xff7A8378);
