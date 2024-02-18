@@ -6,7 +6,7 @@ abstract class AppStrings {
   static const String autharization = 'Авторизация';
   static const String welcome = 'Добро пожаловать';
   static const Text firstButton = Text(
-    'Получить код',
+    'Получить код 1',
     style: TextStyle(
         fontFamily: 'Lato',
         fontWeight: FontWeight.w700,
@@ -14,7 +14,7 @@ abstract class AppStrings {
         color: Colors.white),
   );
   static const Text secondButton = Text(
-    'Получить код',
+    'Получить код 2',
     style: TextStyle(
         fontFamily: 'Lato',
         fontWeight: FontWeight.w700,
@@ -22,7 +22,7 @@ abstract class AppStrings {
         color: Colors.white),
   );
   static const Text thirdButton = Text(
-    'Получить код',
+    'Получить код 3',
     style: TextStyle(
         fontFamily: 'Lato',
         fontWeight: FontWeight.w700,
