@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lilar_test_app/screens/buttons/buttons.dart';
+import 'autorization_screen.dart';
+import 'strings.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key});
@@ -9,11 +12,15 @@ class ProductCard extends StatelessWidget {
       child: Scaffold(
         body: Container(
           constraints: BoxConstraints.expand(height: double.infinity),
-          child: Image(
-            image: AssetImage(
-              'assets/images/lilar_splash_screen.png',
-            ),
-            fit: BoxFit.cover,
+          child: FirstButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => LoginPage(),
+                ),
+              );
+            },
+            text: AppStrings.firstButton,
           ),
         ),
       ),

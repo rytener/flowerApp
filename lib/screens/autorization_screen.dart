@@ -1,3 +1,4 @@
+import 'buttons/buttons.dart';
 import 'package:flutter/material.dart';
 import 'strings.dart';
 import 'components.dart';
@@ -10,6 +11,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shadowColor: Colors.black,
         title: const Text(
           AppStrings.autharization,
           style: MyTextStyles.standart,
@@ -44,7 +46,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20.0),
-              MyButton(
+              FirstButton(
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
@@ -52,45 +54,32 @@ class LoginPage extends StatelessWidget {
                     ),
                   );
                 },
-                text: AppStrings.login,
+                text: AppStrings.firstButton,
+              ),
+              const SizedBox(height: 20.0),
+              SecondButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => ProductCard(),
+                    ),
+                  );
+                },
+                text: AppStrings.secondButton,
+              ),
+              const SizedBox(height: 20.0),
+              ThirdButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => ProductCard(),
+                    ),
+                  );
+                },
+                text: AppStrings.thirdButton,
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class MyButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final Text text;
-
-  const MyButton({
-    required this.onPressed,
-    required this.text,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: onPressed,
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColor.mainLightGreen,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 22.0),
-              child:
-                text
-            ),
-          ],
         ),
       ),
     );
