@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'autorization_screen.dart';
-import 'content/app_theme.dart' as AppColor;
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
