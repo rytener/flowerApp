@@ -37,7 +37,9 @@ class FirstButton extends StatelessWidget {
             children: [
               Padding(
                   padding: const EdgeInsets.symmetric(
-                      vertical: 20.0, horizontal: 16.0),
+                    vertical: 20.0,
+                    horizontal: 16.0,
+                  ),
                   child: text),
             ],
           ),
@@ -83,7 +85,9 @@ class SecondButton extends StatelessWidget {
             children: [
               Padding(
                   padding: const EdgeInsets.symmetric(
-                      vertical: 20.0, horizontal: 16.0),
+                    vertical: 20.0,
+                    horizontal: 16.0,
+                  ),
                   child: text),
             ],
           ),
@@ -95,11 +99,15 @@ class SecondButton extends StatelessWidget {
 
 class ThirdButton extends StatelessWidget {
   final VoidCallback onPressed;
+  final VoidCallback onPressed2;
   final Text text;
+  final Text minitext;
 
   const ThirdButton({
     required this.onPressed,
+    required this.onPressed2,
     required this.text,
+    required this.minitext,
     super.key,
   });
 
@@ -124,13 +132,43 @@ class ThirdButton extends StatelessWidget {
             color: AppColor.mainLightGreen,
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
             children: [
-              Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 20.0, horizontal: 16.0),
-                  child: text),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 22.0,
+                      horizontal: 16.0,
+                    ),
+                    child: text,
+                  ),
+                   Padding(padding: const EdgeInsets.only(left: 44.0),
+                     child: Material(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: InkWell(
+                          onTap: onPressed2,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 32.0,
+                                vertical: 12.0,
+                              ),
+                              child: minitext,
+                            ),
+                          ),
+                        ),
+                      ),
+                   ),
+                ],
+              ),
             ],
           ),
         ),

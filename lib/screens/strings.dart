@@ -3,8 +3,22 @@ import 'components.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppStrings {
-  static const String autharization = 'Авторизация';
-  static const String welcome = 'Добро пожаловать';
+  static const Text autharization = Text(
+    'Авторизация',
+    style: TextStyle(
+        fontFamily: 'Lato-Bold',
+        fontWeight: FontWeight.w700,
+        fontSize: 15.0,
+        color: Colors.black),
+  );
+  static const Text welcome = Text(
+    'Добро пожаловать',
+    style: TextStyle(
+        fontFamily: 'Lato-Bold',
+        fontWeight: FontWeight.w700,
+        fontSize: 15.0,
+        color: Colors.black),
+  );
   static const Text firstButton = Text(
     'Получить код 1',
     style: TextStyle(

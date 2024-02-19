@@ -1,3 +1,5 @@
+import 'package:lilar_test_app/screens/home_screen.dart';
+
 import 'buttons/buttons.dart';
 import 'package:flutter/material.dart';
 import 'strings.dart';
@@ -12,10 +14,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         shadowColor: Colors.black,
-        title: const Text(
-          AppStrings.autharization,
-          style: MyTextStyles.standart,
-        ),
+        title: AppStrings.autharization,
         centerTitle: true,
       ),
       body: Center(
@@ -24,10 +23,7 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                AppStrings.welcome,
-                style: MyTextStyles.standart,
-              ),
+              AppStrings.welcome,
               const SizedBox(height: 20.0),
               const TextField(
                 keyboardType: TextInputType.phone,
@@ -76,7 +72,15 @@ class LoginPage extends StatelessWidget {
                     ),
                   );
                 },
+                onPressed2: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => HomeScreen(),
+                    ),
+                  );
+                },
                 text: AppStrings.thirdButton,
+                minitext: AppStrings.autharization,
               ),
             ],
           ),

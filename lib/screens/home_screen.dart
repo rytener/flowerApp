@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lilar_test_app/screens/components.dart';
+import 'buttons/buttons.dart';
+import 'autorization_screen.dart';
+import 'strings.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,7 +16,16 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: AppColor.mainLightGreen,
+        child: SecondButton(
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (BuildContext context) => LoginPage(),
+              ),
+            );
+          },
+          text: AppStrings.secondButton,
+        ),
       ),
     );
   }
