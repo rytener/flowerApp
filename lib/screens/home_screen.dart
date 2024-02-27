@@ -16,7 +16,7 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: SecondButton(
+        child:FirstButton(
           onPressed: () {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(

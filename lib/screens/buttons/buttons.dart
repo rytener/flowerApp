@@ -50,17 +50,29 @@ class FirstButton extends StatelessWidget {
 }
 
 class SecondButton extends StatelessWidget {
+  final VoidCallback onIncrement;
+  final VoidCallback onDecrement;
   final VoidCallback onPressed;
   final Text text;
+  final int initialCount; // Initial count value (default: 0)
+  final int minimumCount; // Minimum allowed count (default: -10)
+  final int maximumCount; // Maximum allowed count (default: 10)
 
   const SecondButton({
+    Key? key,
+    required this.onIncrement,
+    required this.onDecrement,
     required this.onPressed,
     required this.text,
-    super.key,
-  });
+    this.initialCount = 1,
+    this.minimumCount = 1,
+    this.maximumCount = 10,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _count = ValueNotifier<int>(initialCount);
+
     return Material(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
@@ -80,15 +92,92 @@ class SecondButton extends StatelessWidget {
             color: AppColor.mainLightGreen,
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
             children: [
-              Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 20.0,
-                    horizontal: 16.0,
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 22.0,
+                      horizontal: 16.0,
+                    ),
+                    child: text,
                   ),
-                  child: text),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 118),
+                    child: Material(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 4.0),
+                                child: Container(height: 38.0,width: 38.0,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: AppColor.color3),
+                                  child: IconButton(
+                                    icon: Icon(Icons.add,color: Colors.white,),
+                                    onPressed: () {
+                                      if (_count.value < maximumCount) {
+                                        _count.value++;
+                                        onIncrement();
+                                      }
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Center(
+                                child: ValueListenableBuilder<int>(
+                                  valueListenable: _count,
+                                  builder: (_, count, __) => Text(
+                                    '$count',
+                                    style: const TextStyle(
+                                      fontSize: 20.0,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 4.0),
+                                child: Container(height: 38.0,width: 38.0,decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: AppColor.color3),
+                                  child: IconButton(
+                                    icon: Icon(Icons.remove,color: Colors.white,),
+                                    onPressed: () {
+                                      if (_count.value > minimumCount) {
+                                        _count.value--;
+                                        onDecrement();
+                                      }
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -144,29 +233,30 @@ class ThirdButton extends StatelessWidget {
                     ),
                     child: text,
                   ),
-                   Padding(padding: const EdgeInsets.only(left: 44.0),
-                     child: Material(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: InkWell(
-                          onTap: onPressed2,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 44.0),
+                    child: Material(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: InkWell(
+                        onTap: onPressed2,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 32.0,
+                              vertical: 12.0,
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 32.0,
-                                vertical: 12.0,
-                              ),
-                              child: minitext,
-                            ),
+                            child: minitext,
                           ),
                         ),
                       ),
-                   ),
+                    ),
+                  ),
                 ],
               ),
             ],

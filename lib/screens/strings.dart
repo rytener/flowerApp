@@ -43,4 +43,12 @@ abstract class AppStrings {
         fontSize: 15.0,
         color: Colors.white),
   );
+  static const Text productCost = Text(
+    '135 000 p.',
+    style: TextStyle(
+        fontFamily: 'Lato-Bold',
+        fontWeight: FontWeight.w700,
+        fontSize: 15.0,
+        color: Colors.white),
+  );
 }

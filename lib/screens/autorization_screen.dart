@@ -3,7 +3,6 @@ import 'package:lilar_test_app/screens/home_screen.dart';
 import 'buttons/buttons.dart';
 import 'package:flutter/material.dart';
 import 'strings.dart';
-import 'components.dart';
 import 'product_card_screeen.dart';
 
 class LoginPage extends StatelessWidget {
@@ -60,8 +59,9 @@ class LoginPage extends StatelessWidget {
                       builder: (BuildContext context) => ProductCard(),
                     ),
                   );
-                },
-                text: AppStrings.secondButton,
+                },text: AppStrings.productCost,
+                onDecrement: () {},
+                onIncrement: () {},
               ),
               const SizedBox(height: 20.0),
               ThirdButton(
