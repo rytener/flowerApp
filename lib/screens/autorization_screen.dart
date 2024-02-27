@@ -1,9 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:lilar_test_app/screens/home_screen.dart';
 
+import '../ui/buttons/base_button.dart';
+import '../ui/buttons/counter_button.dart';
+import '../ui/buttons/text_base_button.dart';
 import 'buttons/buttons.dart';
-import 'package:flutter/material.dart';
-import 'strings.dart';
 import 'product_card_screeen.dart';
+import 'strings.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -59,7 +62,8 @@ class LoginPage extends StatelessWidget {
                       builder: (BuildContext context) => ProductCard(),
                     ),
                   );
-                },text: AppStrings.productCost,
+                },
+                text: AppStrings.productCost,
                 onDecrement: () {},
                 onIncrement: () {},
               ),
@@ -81,6 +85,26 @@ class LoginPage extends StatelessWidget {
                 },
                 text: AppStrings.thirdButton,
                 minitext: AppStrings.autharization,
+              ),
+              const SizedBox(height: 20),
+              BaseButton(
+                title: '35 000 p.',
+                subtitle: '35 000 p.',
+                useBoldTittle: false,
+                onPressed: () {},
+              ),
+              const SizedBox(height: 20),
+              TextBaseButton(
+                title: '35 000 p.',
+                subtitle: '70 000 p.',
+                onPressed: () {},
+                buttonText: 'Оформить заказ',
+              ),
+              const SizedBox(height: 20),
+              CounterButton(
+                title: '35 000 p.',
+                subtitle: '35 000 p.',
+                onPressed: () {},
               ),
             ],
           ),
