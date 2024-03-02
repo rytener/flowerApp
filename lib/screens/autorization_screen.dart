@@ -1,6 +1,6 @@
+import 'package:lilar_test_app/ui/buttons/base_button.dart';
 import 'package:lilar_test_app/screens/home_screen.dart';
-
-import 'buttons/buttons.dart';
+import 'strings.dart';
 import 'package:flutter/material.dart';
 import 'strings.dart';
 import 'product_card_screeen.dart';
@@ -41,47 +41,16 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20.0),
-              FirstButton(
+              BaseButton(
+                title: AppStrings.login,
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (BuildContext context) => ProductCard(),
+                      builder: (BuildContext) => const HomeScreen(),
                     ),
                   );
                 },
-                text: AppStrings.firstButton,
-              ),
-              const SizedBox(height: 20.0),
-              SecondButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ProductCard(),
-                    ),
-                  );
-                },text: AppStrings.productCost,
-                onDecrement: () {},
-                onIncrement: () {},
-              ),
-              const SizedBox(height: 20.0),
-              ThirdButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ProductCard(),
-                    ),
-                  );
-                },
-                onPressed2: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => HomeScreen(),
-                    ),
-                  );
-                },
-                text: AppStrings.thirdButton,
-                minitext: AppStrings.autharization,
-              ),
+              )
             ],
           ),
         ),

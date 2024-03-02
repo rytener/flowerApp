@@ -3,6 +3,7 @@ import 'components.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppStrings {
+  static const String login = 'Войти';
   static const Text autharization = Text(
     'Авторизация',
     style: TextStyle(

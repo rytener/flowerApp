@@ -8,7 +8,7 @@ abstract class AppColor{
   static const Color mainDarkGreen = Color(0xff041304);
   static const Color color6 = Color(0xffF5F5F5);
   static const Color color7 = Color(0xff7A8378);
-  static const Color color8 = Color(0xff9E9E9E);
+  static const Color greyText = Color(0xff9E9E9E);
   static const Color color9 = Color(0xff1C1C1C);
   static const Color color10 = Color(0xffE84B51);
   static const Color color11 = Color(0xff5D5F61);
@@ -16,7 +16,7 @@ abstract class AppColor{
   static const Color color13 = Color(0xffFAD7D9);
   static const Color color14 = Color(0xff111A0F);
   static const Color color15 = Color(0xffFEFEFE);
-
+  static const Color appBarShadow = Color(0xffD3D4CD);
 }
 abstract class MyTextStyles{
   static const standart = TextStyle(fontWeight: FontWeight.bold);
