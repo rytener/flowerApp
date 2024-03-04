@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class AppColor{
+abstract class AppColor {
   static const Color mainLightGreen = Color(0xff57704F);
   static const Color SecondaryGreen = Color(0xff333F33);
   static const Color color3 = Color(0xffC7B8B1);
@@ -12,13 +12,28 @@ abstract class AppColor{
   static const Color color9 = Color(0xff1C1C1C);
   static const Color color10 = Color(0xffE84B51);
   static const Color color11 = Color(0xff5D5F61);
-  static const Color color12 = Color(0xffE5EAE0);
+  static const Color likeBackground = Color(0xffE5EAE0);
   static const Color color13 = Color(0xffFAD7D9);
   static const Color color14 = Color(0xff111A0F);
   static const Color color15 = Color(0xffFEFEFE);
   static const Color appBarShadow = Color(0xffD3D4CD);
 }
-abstract class MyTextStyles{
+
+abstract class MyTextStyles {
   static const standart = TextStyle(fontWeight: FontWeight.bold);
-  static const buttonTextStyle = TextStyle(fontWeight: FontWeight.bold,);
+  static const buttonTextStyle = TextStyle(
+    fontWeight: FontWeight.bold,
+  );
+  static const latoRegularGreen600 = TextStyle(
+    fontFamily: 'Lato-Regular',
+    fontWeight: FontWeight.w600,
+    fontSize: 15.0,
+    color: AppColor.mainLightGreen,
+  );
+  static const latoRegularWhite600 = TextStyle(
+    fontFamily: 'Lato-Regular',
+    fontWeight: FontWeight.w600,
+    fontSize: 15.0,
+    color: Colors.white,
+  );
 }
