@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lilar_test_app/screens/components.dart';
-import 'strings.dart';
+import 'package:lilar_test_app/assetsprovider/colors.dart';
+import 'package:lilar_test_app/assetsprovider/icons.dart';
+import 'package:lilar_test_app/assetsprovider/images.dart';
+import 'package:lilar_test_app/ui/navigationbar/bottom_nav_bar.dart';
+import '../assetsprovider/strings.dart';
+import 'package:lilar_test_app/assetsprovider/text_styles.dart';
+import 'package:lilar_test_app/products/products_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,11 +18,11 @@ class _HomeScreen extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.color15,
       appBar: AppBar(
         toolbarHeight: 140,
         backgroundColor: Colors.white,
-        shadowColor: AppColor.appBarShadow,
+        shadowColor: AppColors.appBarShadow,
         elevation: 0.2,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,15 +33,15 @@ class _HomeScreen extends State<HomeScreen> {
                 AppBarContainers(
                   sizeHeight: 48,
                   sizeWidth: 286,
-                  containerColor: AppColor.appBarShadow,
+                  containerColor: AppColors.color6,
                   child: const TextField(
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Введите название',
+                      hintText: 'Введите название',hintStyle: AppTextStyles.latoRegularGrey400,
                       icon: Padding(
-                        padding: EdgeInsets.only(left: 12.0, right: 8.0),
-                        child: Icon(Icons.search),
+                        padding: EdgeInsets.only(left: 12.0),
+                        child: Icon(FlowerAppIcons.ic_search,color: AppColors.greyText,),
                       ),
                     ),
                   ),
@@ -47,9 +52,10 @@ class _HomeScreen extends State<HomeScreen> {
                     sizeHeight: 48,
                     sizeWidth: 48,
                     radius: 12,
-                    containerColor: AppColor.color3,
-                    containerIcon: Icons.percent_outlined,
-                    child: const Image(image: AssetImage('assets/images/Vector.png'),),
+                    containerColor: AppColors.color3,
+                    child: Image(
+                      image: AssetImage('assets/images/Vector.png'),
+                    ),
                   ),
                 ),
               ],
@@ -63,19 +69,19 @@ class _HomeScreen extends State<HomeScreen> {
                     child: const Center(
                       child: Text(
                         'Все',
-                        style: MyTextStyles.latoRegularGreen600,
+                        style: AppTextStyles.latoRegularGreen600,
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: AppBarContainers(
-                      containerColor: AppColor.mainLightGreen,
+                      containerColor: AppColors.mainLightGreen,
                       sizeWidth: 110,
                       child: const Center(
                         child: Text(
                           'Цветы',
-                          style: MyTextStyles.latoRegularWhite600,
+                          style: AppTextStyles.latoRegularWhite600,
                         ),
                       ),
                     ),
@@ -85,7 +91,7 @@ class _HomeScreen extends State<HomeScreen> {
                     child: const Center(
                       child: Text(
                         'Подарки',
-                        style: MyTextStyles.latoRegularGreen600,
+                        style: AppTextStyles.latoRegularGreen600,
                       ),
                     ),
                   ),
@@ -95,44 +101,91 @@ class _HomeScreen extends State<HomeScreen> {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                ProductCard(),
-                ProductCard(),
-              ],
-            ),
-            Row(
-              children: [
-                ProductCard(),
-                ProductCard(),
-              ],
-            ),
-            Row(
-              children: [
-                ProductCard(),
-                ProductCard(),
-              ],
-            ),
-          ],
+      body: GridView.builder(
+        padding: EdgeInsets.only(top: 20,bottom: 20),
+        physics: ScrollPhysics(),
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 0,
+          mainAxisExtent: 270,
+          mainAxisSpacing: 20,
         ),
+        itemCount: AppProducts.productsMap.length,
+        itemBuilder: (_, index) {
+          return Center(
+            child: Container(
+              height: 270,
+              width: 168,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: AppColors.color6,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      height: 200,
+                      width: 168,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Image.asset(
+                        "${AppProducts.productsMap.elementAt(index)['images']}",
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top:10,left: 12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                            "${AppProducts.productsMap.elementAt(index)['title']}",style: AppTextStyles.latoRegularDarkGreen600,),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                                "${AppProducts.productsMap.elementAt(index)['sellCost']}",style: AppTextStyles.latoBoldGreen800,),
+                            Padding(
+                              padding: EdgeInsets.only(left: 8),
+                              child: Text(
+                                  "${AppProducts.productsMap.elementAt(index)['discountCost']}",style: AppTextStyles.latoRegularGrey600,),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        },
       ),
-      bottomNavigationBar: const NavigationBarIcons(
-        firstIcon: Icons.home,
-        firstLabel: 'Home',
-        secondIcon: Icons.home,
-        secondLabel: 'Home',
-        thirdIcon: Icons.home,
-        thirdLabel: 'Home',
-        fourthIcon: Icons.home,
-        fourthLabel: 'Home',
+      bottomNavigationBar: BottomNavBar(
+        //const NavigationBar(
+        firstIcon: FlowerAppIcons.ic_home,
+        firstLabel: 'Главная',
+        secondIcon: FlowerAppIcons.ic_shopping_bag,
+        secondLabel: 'Корзина',
+        thirdIcon: FlowerAppIcons.ic_favorite,
+        thirdLabel: 'Избранное',
+        fourthIcon: FlowerAppIcons.ic_profile,
+        fourthLabel: 'Профиль',
       ),
     );
   }
 }
- class AppBarContainers extends StatelessWidget {
+
+class AppBarContainers extends StatelessWidget {
   double sizeHeight;
   double sizeWidth;
   double radius;
@@ -145,7 +198,7 @@ class _HomeScreen extends State<HomeScreen> {
       {this.sizeHeight = 40,
       required this.sizeWidth,
       this.radius = 16,
-      this.containerColor = AppColor.buttonShadow,
+      this.containerColor = AppColors.buttonShadow,
       this.containerIcon,
       this.text,
       this.child,
@@ -178,7 +231,7 @@ class ProductCard extends StatefulWidget {
       {this.sizeHeight = 200,
       this.sizeWidth = 169,
       this.radius = 16,
-      this.containerColor = AppColor.color6,
+      this.containerColor = Colors.black,
       this.productName,
       this.discountCost,
       this.sellCost,
@@ -190,27 +243,37 @@ class ProductCard extends StatefulWidget {
 
 class _ProductCardState extends State<ProductCard> {
   bool like = false;
-  static const image = AssetImage('assets/images/Ic_Favorite.png');
-  AssetImage _containerImage =image ;
+  static const _icon = Icon(FlowerAppIcons.ic_favorite,
+      size: 20, color: AppColors.mainLightGreen);
+  var _containerIcon = _icon;
 
   void _dislike() {
     setState(() {
-      _containerImage = AssetImage('assets/images/Ic_Favorite.png');
+      _containerIcon = Icon(FlowerAppIcons.ic_favorite,
+          size: 20, color: AppColors.mainLightGreen);
     });
   }
 
   void _like() {
     setState(() {
-      _containerImage = AssetImage('assets/images/Ic_Favorite_filled.png');
+      _containerIcon = Icon(FlowerAppIcons.ic_favorite_filled,
+          size: 20, color: AppColors.mainLightGreen);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 18, top: 20),
-      child: Stack(
-        alignment: Alignment.topRight,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(widget.radius),
+      ),
+    );
+  }
+}
+
+/*Padding(
+      padding: const EdgeInsets.only(top: 20,bottom: 10),
+      child: Stack(alignment: Alignment.center,
         children: [
           Container(
             height: widget.sizeHeight + 70,
@@ -251,63 +314,14 @@ class _ProductCardState extends State<ProductCard> {
                 height: 32,
                 width: 32,
                 decoration: BoxDecoration(
-                  color: AppColor.likeBackground,
+                  color: AppColors.likeBackground,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Image(image: _containerImage),
+                child: _containerIcon,
               ),
             ),
           ),
         ],
       ),
     );
-  }
-}
-
-class NavigationBarIcons extends StatelessWidget {
-  final IconData firstIcon;
-  final IconData secondIcon;
-  final IconData thirdIcon;
-  final IconData fourthIcon;
-  final String firstLabel;
-  final String secondLabel;
-  final String thirdLabel;
-  final String fourthLabel;
-
-  const NavigationBarIcons(
-      {required this.firstIcon,
-      required this.firstLabel,
-      required this.secondIcon,
-      required this.secondLabel,
-      required this.thirdIcon,
-      required this.thirdLabel,
-      required this.fourthIcon,
-      required this.fourthLabel,
-      super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      selectedItemColor: AppColor.greyText,
-      unselectedItemColor: AppColor.greyText,
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(firstIcon),
-          label: firstLabel,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(firstIcon),
-          label: secondLabel,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(firstIcon),
-          label: thirdLabel,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(firstIcon),
-          label: fourthLabel,
-        ),
-      ],
-    );
-  }
-}
+*/

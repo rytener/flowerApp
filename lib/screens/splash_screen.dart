@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'autorization_screen.dart';
-
-
+import 'package:lilar_test_app/assetsprovider/images.dart';
+import 'package:lilar_test_app/assetsprovider/strings.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(seconds: 2),
       () => Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (_) => LoginPage(),
+          builder: (_) => const LoginPage(),
         ),
       ),
     );
@@ -29,11 +29,9 @@ class _SplashScreenState extends State<SplashScreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          constraints: const BoxConstraints.expand(height: double.infinity),
+          constraints:  const BoxConstraints.expand(height: double.infinity),
           child: const Image(
-            image: AssetImage(
-              'assets/images/lilar_splash_screen.png',
-            ),
+            image: AssetImage(AppImages.splash),
             fit: BoxFit.cover,
           ),
         ),

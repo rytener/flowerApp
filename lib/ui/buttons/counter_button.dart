@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:lilar_test_app/ui/buttons/base_button.dart';
 
-import '../../screens/components.dart';
+import '../../assetsprovider/colors.dart';
 
 class CounterButton extends StatefulWidget {
   final String title;
@@ -94,7 +94,7 @@ class _IconContainer extends StatelessWidget {
         width: 24,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: AppColor.color3,
+          color: AppColors.color3,
         ),
         child: Icon(
           icon,

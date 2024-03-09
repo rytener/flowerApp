@@ -1,5 +1,4 @@
-import 'dart:ui';
-import 'components.dart';
+import 'colors.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppStrings {
@@ -23,7 +22,7 @@ abstract class AppStrings {
   static const Text firstButton = Text(
     'Получить код 1',
     style: TextStyle(
-        fontFamily: 'Lato-Bold',
+        fontFamily: 'Lato',
         fontWeight: FontWeight.w700,
         fontSize: 15.0,
         color: Colors.white),

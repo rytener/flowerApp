@@ -1,9 +1,8 @@
 import 'package:lilar_test_app/ui/buttons/base_button.dart';
 import 'package:lilar_test_app/screens/home_screen.dart';
-import 'strings.dart';
+import '../assetsprovider/strings.dart';
 import 'package:flutter/material.dart';
-import 'strings.dart';
-import 'product_card_screeen.dart';
+
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
