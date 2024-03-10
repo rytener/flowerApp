@@ -30,29 +30,36 @@ class _HomeScreen extends State<HomeScreen> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                AppBarContainers(
-                  sizeHeight: 48,
-                  sizeWidth: 286,
-                  containerColor: AppColors.color6,
+                Container(
+                  height: 48,
+                  width: 286,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: AppColors.color6),
                   child: const TextField(
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Введите название',hintStyle: AppTextStyles.latoRegularGrey400,
+                      hintText: 'Введите название',
+                      hintStyle: AppTextStyles.latoRegularGrey400,
                       icon: Padding(
                         padding: EdgeInsets.only(left: 12.0),
-                        child: Icon(FlowerAppIcons.ic_search,color: AppColors.greyText,),
+                        child: Icon(
+                          FlowerAppIcons.ic_search,
+                          color: AppColors.greyText,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
-                  child: AppBarContainers(
-                    sizeHeight: 48,
-                    sizeWidth: 48,
-                    radius: 12,
-                    containerColor: AppColors.color3,
+                  child: Container(
+                    height: 48,
+                    width: 48,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: AppColors.color3),
                     child: Image(
                       image: AssetImage('assets/images/Vector.png'),
                     ),
@@ -66,34 +73,19 @@ class _HomeScreen extends State<HomeScreen> {
                 children: [
                   AppBarContainers(
                     sizeWidth: 88,
-                    child: const Center(
-                      child: Text(
-                        'Все',
-                        style: AppTextStyles.latoRegularGreen600,
-                      ),
-                    ),
+                    text: 'Все',
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: AppBarContainers(
-                      containerColor: AppColors.mainLightGreen,
+                      selectedColor: AppColors.mainLightGreen,
                       sizeWidth: 110,
-                      child: const Center(
-                        child: Text(
-                          'Цветы',
-                          style: AppTextStyles.latoRegularWhite600,
-                        ),
-                      ),
+                      text: 'Цветы',
                     ),
                   ),
                   AppBarContainers(
                     sizeWidth: 128,
-                    child: const Center(
-                      child: Text(
-                        'Подарки',
-                        style: AppTextStyles.latoRegularGreen600,
-                      ),
-                    ),
+                    text: 'Подарки',
                   ),
                 ],
               ),
@@ -102,7 +94,7 @@ class _HomeScreen extends State<HomeScreen> {
         ),
       ),
       body: GridView.builder(
-        padding: EdgeInsets.only(top: 20,bottom: 20),
+        padding: EdgeInsets.only(top: 20, bottom: 20),
         physics: ScrollPhysics(),
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -122,65 +114,73 @@ class _HomeScreen extends State<HomeScreen> {
                 color: AppColors.color6,
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Container(
-                      height: 200,
-                      width: 168,
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Image.asset(
-                        "${AppProducts.productsMap.elementAt(index)['images']}",
-                        height: 200,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top:10,left: 12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
                       children: [
-                        Text(
-                            "${AppProducts.productsMap.elementAt(index)['title']}",style: AppTextStyles.latoRegularDarkGreen600,),
-                        SizedBox(
-                          height: 4,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                                "${AppProducts.productsMap.elementAt(index)['sellCost']}",style: AppTextStyles.latoBoldGreen800,),
-                            Padding(
-                              padding: EdgeInsets.only(left: 8),
-                              child: Text(
-                                  "${AppProducts.productsMap.elementAt(index)['discountCost']}",style: AppTextStyles.latoRegularGrey600,),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Container(
+                            height: 200,
+                            width: 168,
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: BorderRadius.circular(16),
                             ),
-                          ],
-                        )
+                            child: Image.asset(
+                              "${AppProducts.productsMap.elementAt(index)['images']}",
+                              height: 200,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 0,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: FavoriteProduct(
+                              index1: index,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                  )
-                ],
-              ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10, left: 12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "${AppProducts.productsMap.elementAt(index)['title']}",
+                            style: AppTextStyles.latoRegularDarkGreen600,
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "${AppProducts.productsMap.elementAt(index)['sellCost']}",
+                                style: AppTextStyles.latoBoldGreen800,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 8),
+                                child: Text(
+                                  "${AppProducts.productsMap.elementAt(index)['discountCost']}",
+                                  style: AppTextStyles.latoRegularGrey600,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ]),
             ),
           );
         },
       ),
-      bottomNavigationBar: BottomNavBar(
-        //const NavigationBar(
-        firstIcon: FlowerAppIcons.ic_home,
-        firstLabel: 'Главная',
-        secondIcon: FlowerAppIcons.ic_shopping_bag,
-        secondLabel: 'Корзина',
-        thirdIcon: FlowerAppIcons.ic_favorite,
-        thirdLabel: 'Избранное',
-        fourthIcon: FlowerAppIcons.ic_profile,
-        fourthLabel: 'Профиль',
-      ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
@@ -189,60 +189,60 @@ class AppBarContainers extends StatelessWidget {
   double sizeHeight;
   double sizeWidth;
   double radius;
-  Color containerColor;
+  Color selectedColor;
+  Color unselectedColor;
+  TextStyle style;
   final containerIcon;
-  final String? text;
-  final child;
+  final String text;
+
+  // final VoidCallback onPressed;
+  bool isSelected;
 
   AppBarContainers(
       {this.sizeHeight = 40,
+      this.style = AppTextStyles.latoRegularGreen600,
       required this.sizeWidth,
       this.radius = 16,
-      this.containerColor = AppColors.buttonShadow,
+      this.unselectedColor = AppColors.buttonShadow,
+      this.selectedColor = AppColors.mainLightGreen,
+      this.isSelected = false,
       this.containerIcon,
-      this.text,
-      this.child,
+      required this.text,
       super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: sizeHeight,
-      width: sizeWidth,
-      decoration: BoxDecoration(
-        color: containerColor,
-        borderRadius: BorderRadius.circular(radius),
+    return InkWell(borderRadius: BorderRadius.circular(16),
+      onTap: (){},
+      child: Container(
+        height: sizeHeight,
+        width: sizeWidth,
+        decoration: BoxDecoration(
+          color: unselectedColor,
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: AppTextStyles.latoRegularGreen600,
+          ),
+        ),
       ),
-      child: child,
     );
   }
 }
 
-class ProductCard extends StatefulWidget {
-  double sizeHeight;
-  double sizeWidth;
-  double radius;
-  Color containerColor;
-  final String? productName;
-  final String? sellCost;
-  final String? discountCost;
+class FavoriteProduct extends StatefulWidget {
+  int index1;
 
-  ProductCard(
-      {this.sizeHeight = 200,
-      this.sizeWidth = 169,
-      this.radius = 16,
-      this.containerColor = Colors.black,
-      this.productName,
-      this.discountCost,
-      this.sellCost,
-      super.key});
+  FavoriteProduct({required this.index1, super.key});
 
   @override
-  State<ProductCard> createState() => _ProductCardState();
+  State<FavoriteProduct> createState() => _FavoriteProduct();
 }
 
-class _ProductCardState extends State<ProductCard> {
-  bool like = false;
+class _FavoriteProduct extends State<FavoriteProduct> {
+  bool isFavorite = false;
   static const _icon = Icon(FlowerAppIcons.ic_favorite,
       size: 20, color: AppColors.mainLightGreen);
   var _containerIcon = _icon;
@@ -263,65 +263,25 @@ class _ProductCardState extends State<ProductCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(widget.radius),
+    return InkWell(
+      onTap: () {
+        if (isFavorite == false) {
+          isFavorite = true;
+          _like();
+        } else if (isFavorite == true) {
+          isFavorite = false;
+          _dislike();
+        }
+      },
+      child: Container(
+        height: 32,
+        width: 32,
+        decoration: BoxDecoration(
+          color: AppColors.likeBackground,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: _containerIcon,
       ),
     );
   }
 }
-
-/*Padding(
-      padding: const EdgeInsets.only(top: 20,bottom: 10),
-      child: Stack(alignment: Alignment.center,
-        children: [
-          Container(
-            height: widget.sizeHeight + 70,
-            width: widget.sizeWidth,
-            decoration: BoxDecoration(
-              color: widget.containerColor,
-              borderRadius: BorderRadius.circular(widget.radius),
-            ),
-          ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(widget.radius),
-            child: Container(
-              height: widget.sizeHeight,
-              width: widget.sizeWidth,
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(widget.radius),
-              ),
-              child: const Image(
-                image: AssetImage('assets/images/first.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              onTap: () {
-                if (like == false) {
-                  like = true;
-                  _like();
-                } else if (like == true) {
-                  like = false;
-                  _dislike();
-                }
-              },
-              child: Container(
-                height: 32,
-                width: 32,
-                decoration: BoxDecoration(
-                  color: AppColors.likeBackground,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: _containerIcon,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-*/
