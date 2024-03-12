@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lilar_test_app/assetsprovider/icons.dart';
-import 'package:lilar_test_app/assetsprovider/strings.dart';
+
+import '../../assets_provider/icons.dart';
+import '../../assets_provider/strings.dart';
 
 class BottomNavBar extends StatelessWidget {
-
-
-  const BottomNavBar(
-      {
-      super.key});
+  const BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +15,19 @@ class BottomNavBar extends StatelessWidget {
         Container(
           height: 74,
           color: Colors.black12,
-          child: Row(
+          child: const Row(
             children: [
-              NavigationButton(icon: FlowerAppIcons.ic_home, label: AppStrings.firstLabel),
-              NavigationButton(icon: FlowerAppIcons.ic_shopping_bag, label: AppStrings.secondLabel),
-              NavigationButton(icon: FlowerAppIcons.ic_favorite, label: AppStrings.thirdLabel),
-              NavigationButton(icon: FlowerAppIcons.ic_profile, label: AppStrings.fourthLabel),
+              NavigationButton(
+                  icon: FlowerAppIcons.ic_home, label: AppStrings.firstLabel),
+              NavigationButton(
+                  icon: FlowerAppIcons.ic_shopping_bag,
+                  label: AppStrings.secondLabel),
+              NavigationButton(
+                  icon: FlowerAppIcons.ic_favorite,
+                  label: AppStrings.thirdLabel),
+              NavigationButton(
+                  icon: FlowerAppIcons.ic_profile,
+                  label: AppStrings.fourthLabel),
             ],
           ),
         ),
@@ -43,7 +47,7 @@ class NavigationButton extends StatelessWidget {
     return InkWell(
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 50,
             width: 98,
             child: Icon(icon),

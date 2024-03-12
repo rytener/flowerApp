@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-abstract class AppImages{
+abstract class AppImages {
   static const splash = 'assets/images/Splash.png';
   static const product1 = 'assets/images/first.png';
   static const product2 = 'assets/images/second.png';

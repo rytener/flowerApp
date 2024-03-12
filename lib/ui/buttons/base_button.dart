@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../assetsprovider/colors.dart';
+import '../../assets_provider/colors.dart';
 
 class BaseButton extends StatelessWidget {
   final VoidCallback onPressed;

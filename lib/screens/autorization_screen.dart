@@ -1,6 +1,6 @@
 import 'package:lilar_test_app/ui/buttons/base_button.dart';
 import 'package:lilar_test_app/screens/home_screen.dart';
-import '../assetsprovider/strings.dart';
+import '../assets_provider/strings.dart';
 import 'package:flutter/material.dart';
 
 
@@ -45,7 +45,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (BuildContext) => const HomeScreen(),
+                      builder: (_) => const HomeScreen(),
                     ),
                   );
                 },

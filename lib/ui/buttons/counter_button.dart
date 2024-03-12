@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:lilar_test_app/ui/buttons/base_button.dart';
 
-import '../../assetsprovider/colors.dart';
+import '../../assets_provider/colors.dart';
 
 class CounterButton extends StatefulWidget {
   final String title;
