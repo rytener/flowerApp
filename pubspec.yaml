@@ -16,7 +16,6 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -26,7 +25,6 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
-    - assets/icons/
   uses-material-design: true
   fonts:
     - family: Lato
@@ -34,3 +32,6 @@ flutter:
         - asset: assets/fonts/Lato-Bold.ttf
           weight: 700
         - asset: assets/fonts/Lato-Regular.ttf
+    - family: FlowerAppIcons
+      fonts:
+        - asset: assets/fonts/FlowerAppIcons.ttf

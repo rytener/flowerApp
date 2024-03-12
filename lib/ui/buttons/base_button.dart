@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../screens/components.dart';
+import '../../assetsprovider/colors.dart';
 
 class BaseButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -27,13 +27,13 @@ class BaseButton extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
-              color: AppColor.buttonShadow,
+              color: AppColors.buttonShadow,
               spreadRadius: 0,
               blurRadius: 24,
               offset: Offset(4, 8),
             ),
           ],
-          color: AppColor.mainLightGreen,
+          color: AppColors.mainLightGreen,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Padding(
@@ -70,9 +70,9 @@ class BaseButton extends StatelessWidget {
                         fontFamily: 'Lato-Bold',
                         fontWeight: FontWeight.w600,
                         fontSize: 14.0,
-                        color: AppColor.color12,
+                        color: AppColors.likeBackground,
                         decoration: TextDecoration.lineThrough,
-                        decorationColor: AppColor.color12,
+                        decorationColor: AppColors.likeBackground,
                       ),
                     ),
                 ],

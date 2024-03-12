@@ -1,12 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:lilar_test_app/ui/buttons/base_button.dart';
 import 'package:lilar_test_app/screens/home_screen.dart';
+import '../assetsprovider/strings.dart';
+import 'package:flutter/material.dart';
 
-import '../ui/buttons/base_button.dart';
-import '../ui/buttons/counter_button.dart';
-import '../ui/buttons/text_base_button.dart';
-import 'buttons/buttons.dart';
-import 'product_card_screeen.dart';
-import 'strings.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -44,68 +40,16 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20.0),
-              FirstButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ProductCard(),
-                    ),
-                  );
-                },
-                text: AppStrings.firstButton,
-              ),
-              const SizedBox(height: 20.0),
-              SecondButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ProductCard(),
-                    ),
-                  );
-                },
-                text: AppStrings.productCost,
-                onDecrement: () {},
-                onIncrement: () {},
-              ),
-              const SizedBox(height: 20.0),
-              ThirdButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ProductCard(),
-                    ),
-                  );
-                },
-                onPressed2: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => HomeScreen(),
-                    ),
-                  );
-                },
-                text: AppStrings.thirdButton,
-                minitext: AppStrings.autharization,
-              ),
-              const SizedBox(height: 20),
               BaseButton(
-                title: '35 000 p.',
-                subtitle: '35 000 p.',
-                useBoldTittle: false,
-                onPressed: () {},
-              ),
-              const SizedBox(height: 20),
-              TextBaseButton(
-                title: '35 000 p.',
-                subtitle: '70 000 p.',
-                onPressed: () {},
-                buttonText: 'Оформить заказ',
-              ),
-              const SizedBox(height: 20),
-              CounterButton(
-                title: '35 000 p.',
-                subtitle: '35 000 p.',
-                onPressed: () {},
-              ),
+                title: AppStrings.login,
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (BuildContext) => const HomeScreen(),
+                    ),
+                  );
+                },
+              )
             ],
           ),
         ),
