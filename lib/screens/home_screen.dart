@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lilar_test_app/assetsprovider/colors.dart';
-import 'package:lilar_test_app/assetsprovider/icons.dart';
-import 'package:lilar_test_app/assetsprovider/images.dart';
-import 'package:lilar_test_app/ui/navigationbar/bottom_nav_bar.dart';
-import '../assetsprovider/strings.dart';
-import 'package:lilar_test_app/assetsprovider/text_styles.dart';
+import 'package:lilar_test_app/assets_provider/colors.dart';
+import 'package:lilar_test_app/assets_provider/icons.dart';
+import 'package:lilar_test_app/assets_provider/text_styles.dart';
 import 'package:lilar_test_app/products/products_list.dart';
+import 'package:lilar_test_app/ui/navigationbar/bottom_nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,8 +32,9 @@ class _HomeScreen extends State<HomeScreen> {
                   height: 48,
                   width: 286,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: AppColors.color6),
+                    borderRadius: BorderRadius.circular(16),
+                    color: AppColors.color6,
+                  ),
                   child: const TextField(
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
@@ -60,7 +59,7 @@ class _HomeScreen extends State<HomeScreen> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         color: AppColors.color3),
-                    child: Image(
+                    child: const Image(
                       image: AssetImage('assets/images/Vector.png'),
                     ),
                   ),
@@ -94,10 +93,10 @@ class _HomeScreen extends State<HomeScreen> {
         ),
       ),
       body: GridView.builder(
-        padding: EdgeInsets.only(top: 20, bottom: 20),
-        physics: ScrollPhysics(),
+        padding: const EdgeInsets.only(top: 20, bottom: 20),
+        physics: const ScrollPhysics(),
         shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 0,
           mainAxisExtent: 270,
@@ -134,19 +133,17 @@ class _HomeScreen extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                        Positioned(
+                        const Positioned(
                           right: 0,
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: FavoriteProduct(
-                              index1: index,
-                            ),
+                            padding: EdgeInsets.all(8.0),
+                            child: FavoriteProduct(),
                           ),
                         ),
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 10, left: 12),
+                      padding: const EdgeInsets.only(top: 10, left: 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -154,7 +151,7 @@ class _HomeScreen extends State<HomeScreen> {
                             "${AppProducts.productsMap.elementAt(index)['title']}",
                             style: AppTextStyles.latoRegularDarkGreen600,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 4,
                           ),
                           Row(
@@ -164,7 +161,7 @@ class _HomeScreen extends State<HomeScreen> {
                                 style: AppTextStyles.latoBoldGreen800,
                               ),
                               Padding(
-                                padding: EdgeInsets.only(left: 8),
+                                padding: const EdgeInsets.only(left: 8),
                                 child: Text(
                                   "${AppProducts.productsMap.elementAt(index)['discountCost']}",
                                   style: AppTextStyles.latoRegularGrey600,
@@ -180,7 +177,7 @@ class _HomeScreen extends State<HomeScreen> {
           );
         },
       ),
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 }
@@ -192,28 +189,28 @@ class AppBarContainers extends StatelessWidget {
   Color selectedColor;
   Color unselectedColor;
   TextStyle style;
-  final containerIcon;
   final String text;
 
   // final VoidCallback onPressed;
   bool isSelected;
 
-  AppBarContainers(
-      {this.sizeHeight = 40,
-      this.style = AppTextStyles.latoRegularGreen600,
-      required this.sizeWidth,
-      this.radius = 16,
-      this.unselectedColor = AppColors.buttonShadow,
-      this.selectedColor = AppColors.mainLightGreen,
-      this.isSelected = false,
-      this.containerIcon,
-      required this.text,
-      super.key});
+  AppBarContainers({
+    this.sizeHeight = 40,
+    this.style = AppTextStyles.latoRegularGreen600,
+    required this.sizeWidth,
+    this.radius = 16,
+    this.unselectedColor = AppColors.buttonShadow,
+    this.selectedColor = AppColors.mainLightGreen,
+    this.isSelected = false,
+    required this.text,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(borderRadius: BorderRadius.circular(16),
-      onTap: (){},
+    return InkWell(
+      borderRadius: BorderRadius.circular(16),
+      onTap: () {},
       child: Container(
         height: sizeHeight,
         width: sizeWidth,
@@ -233,9 +230,7 @@ class AppBarContainers extends StatelessWidget {
 }
 
 class FavoriteProduct extends StatefulWidget {
-  int index1;
-
-  FavoriteProduct({required this.index1, super.key});
+  const FavoriteProduct({super.key});
 
   @override
   State<FavoriteProduct> createState() => _FavoriteProduct();
@@ -243,36 +238,17 @@ class FavoriteProduct extends StatefulWidget {
 
 class _FavoriteProduct extends State<FavoriteProduct> {
   bool isFavorite = false;
-  static const _icon = Icon(FlowerAppIcons.ic_favorite,
-      size: 20, color: AppColors.mainLightGreen);
-  var _containerIcon = _icon;
 
-  void _dislike() {
+  void _onIconClick() {
     setState(() {
-      _containerIcon = Icon(FlowerAppIcons.ic_favorite,
-          size: 20, color: AppColors.mainLightGreen);
-    });
-  }
-
-  void _like() {
-    setState(() {
-      _containerIcon = Icon(FlowerAppIcons.ic_favorite_filled,
-          size: 20, color: AppColors.mainLightGreen);
+      isFavorite = !isFavorite;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        if (isFavorite == false) {
-          isFavorite = true;
-          _like();
-        } else if (isFavorite == true) {
-          isFavorite = false;
-          _dislike();
-        }
-      },
+      onTap: _onIconClick,
       child: Container(
         height: 32,
         width: 32,
@@ -280,7 +256,13 @@ class _FavoriteProduct extends State<FavoriteProduct> {
           color: AppColors.likeBackground,
           borderRadius: BorderRadius.circular(8),
         ),
-        child: _containerIcon,
+        child: Icon(
+          isFavorite
+              ? FlowerAppIcons.ic_favorite_filled
+              : FlowerAppIcons.ic_favorite,
+          size: 20,
+          color: AppColors.mainLightGreen,
+        ),
       ),
     );
   }

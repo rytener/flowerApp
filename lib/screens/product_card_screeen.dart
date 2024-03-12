@@ -8,7 +8,7 @@ class ProductCard extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          constraints: BoxConstraints.expand(height: double.infinity),
+          constraints: const BoxConstraints.expand(height: double.infinity),
 
         ),
       ),

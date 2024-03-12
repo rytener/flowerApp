@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:lilar_test_app/assetsprovider/images.dart';
+import 'package:lilar_test_app/assets_provider/images.dart';
 
 abstract class AppProducts {
   static final List<Map<String, dynamic>> productsMap = [

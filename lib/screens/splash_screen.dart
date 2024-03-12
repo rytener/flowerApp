@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'autorization_screen.dart';
-import 'package:lilar_test_app/assetsprovider/images.dart';
-import 'package:lilar_test_app/assetsprovider/strings.dart';
+import 'package:lilar_test_app/assets_provider/images.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
