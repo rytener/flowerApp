@@ -7,6 +7,6 @@ class FavouritesPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text('Избранное'),),bottomNavigationBar: const BottomNavBar(),backgroundColor: AppColors.color15,);
+    return Scaffold(appBar: AppBar(title: const Text('Избранное'),),bottomNavigationBar: const BottomNavBar(),backgroundColor: AppColors.color15,);
   }
 }
