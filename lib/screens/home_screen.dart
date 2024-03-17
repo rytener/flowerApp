@@ -4,15 +4,15 @@ import 'package:lilar_test_app/assets_provider/icons.dart';
 import 'package:lilar_test_app/assets_provider/text_styles.dart';
 import 'package:lilar_test_app/products/products_list.dart';
 import 'package:lilar_test_app/ui/navigationbar/bottom_nav_bar.dart';
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+import 'package:lilar_test_app/ui/products_cards/home_products.dart';
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreen();
+  State<HomePage> createState() => _HomePage();
 }
 
-class _HomeScreen extends State<HomeScreen> {
+class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +44,7 @@ class _HomeScreen extends State<HomeScreen> {
                       icon: Padding(
                         padding: EdgeInsets.only(left: 12.0),
                         child: Icon(
-                          FlowerAppIcons.ic_search,
+                          FlowerAppIcons.icSearch,
                           color: AppColors.greyText,
                         ),
                       ),
@@ -182,88 +182,3 @@ class _HomeScreen extends State<HomeScreen> {
   }
 }
 
-class AppBarContainers extends StatelessWidget {
-  double sizeHeight;
-  double sizeWidth;
-  double radius;
-  Color selectedColor;
-  Color unselectedColor;
-  TextStyle style;
-  final String text;
-
-  // final VoidCallback onPressed;
-  bool isSelected;
-
-  AppBarContainers({
-    this.sizeHeight = 40,
-    this.style = AppTextStyles.latoRegularGreen600,
-    required this.sizeWidth,
-    this.radius = 16,
-    this.unselectedColor = AppColors.buttonShadow,
-    this.selectedColor = AppColors.mainLightGreen,
-    this.isSelected = false,
-    required this.text,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(16),
-      onTap: () {},
-      child: Container(
-        height: sizeHeight,
-        width: sizeWidth,
-        decoration: BoxDecoration(
-          color: unselectedColor,
-          borderRadius: BorderRadius.circular(radius),
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: AppTextStyles.latoRegularGreen600,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class FavoriteProduct extends StatefulWidget {
-  const FavoriteProduct({super.key});
-
-  @override
-  State<FavoriteProduct> createState() => _FavoriteProduct();
-}
-
-class _FavoriteProduct extends State<FavoriteProduct> {
-  bool isFavorite = false;
-
-  void _onIconClick() {
-    setState(() {
-      isFavorite = !isFavorite;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: _onIconClick,
-      child: Container(
-        height: 32,
-        width: 32,
-        decoration: BoxDecoration(
-          color: AppColors.likeBackground,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Icon(
-          isFavorite
-              ? FlowerAppIcons.ic_favorite_filled
-              : FlowerAppIcons.ic_favorite,
-          size: 20,
-          color: AppColors.mainLightGreen,
-        ),
-      ),
-    );
-  }
-}

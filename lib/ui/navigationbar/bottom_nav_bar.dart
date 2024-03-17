@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lilar_test_app/assets_provider/colors.dart';
+import 'package:lilar_test_app/assets_provider/text_styles.dart';
+import 'package:lilar_test_app/screens/home_screen.dart';
+import 'package:lilar_test_app/screens/shoping_bag_screen.dart';
 
 import '../../assets_provider/icons.dart';
 import '../../assets_provider/strings.dart';
@@ -13,21 +17,25 @@ class BottomNavBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
-          height: 74,
-          color: Colors.black12,
+          height: 70,
           child: const Row(
             children: [
               NavigationButton(
-                  icon: FlowerAppIcons.ic_home, label: AppStrings.firstLabel),
+                icon: FlowerAppIcons.icHome,
+                label: AppStrings.firstLabel,
+              ),
               NavigationButton(
-                  icon: FlowerAppIcons.ic_shopping_bag,
-                  label: AppStrings.secondLabel),
+                icon: FlowerAppIcons.icShoppingBag,
+                label: AppStrings.secondLabel,
+              ),
               NavigationButton(
-                  icon: FlowerAppIcons.ic_favorite,
-                  label: AppStrings.thirdLabel),
+                icon: FlowerAppIcons.icFavorite,
+                label: AppStrings.thirdLabel,
+              ),
               NavigationButton(
-                  icon: FlowerAppIcons.ic_profile,
-                  label: AppStrings.fourthLabel),
+                icon: FlowerAppIcons.icProfile,
+                label: AppStrings.fourthLabel,
+              ),
             ],
           ),
         ),
@@ -39,20 +47,40 @@ class BottomNavBar extends StatelessWidget {
 class NavigationButton extends StatelessWidget {
   final IconData icon;
   final String label;
+  final screen;
 
-  const NavigationButton({required this.icon, required this.label, super.key});
+  const NavigationButton(
+      {required this.icon, required this.label, this.screen, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (_) => const ShopingBagPage(),
+          ),
+        );
+      },
       child: Column(
         children: [
-          SizedBox(
-            height: 50,
-            width: 98,
-            child: Icon(icon),
+          Padding(
+            padding: const EdgeInsets.only(top: 12),
+            child: Container(
+              decoration: BoxDecoration(color: AppColors.color15),
+              height: 50,
+              width: 98,
+              child: Column(
+                children: [
+                  Icon(icon,color: AppColors.greyText,),
+                  Text(
+                    label,
+                    style: AppTextStyles.bottomNavBarText,
+                  ),
+                ],
+              ),
+            ),
           ),
-          Text(label),
         ],
       ),
     );

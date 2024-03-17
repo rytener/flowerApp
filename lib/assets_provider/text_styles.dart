@@ -39,4 +39,10 @@ abstract class AppTextStyles {
       fontSize: 15.0,
       color: AppColors.greyText,
   );
+  static const bottomNavBarText = TextStyle(
+    fontFamily: 'Lato',
+    fontWeight: FontWeight.w500,
+    fontSize: 12.0,
+    color: AppColors.greyText,
+  );
 }

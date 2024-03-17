@@ -2,14 +2,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'autorization_screen.dart';
 import 'package:lilar_test_app/assets_provider/images.dart';
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+class SplashScreenPage extends StatefulWidget {
+  const SplashScreenPage({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreenPage> createState() => _SplashScreenPage();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenPage extends State<SplashScreenPage> {
   @override
   void initState() {
     super.initState();

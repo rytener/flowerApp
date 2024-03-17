@@ -9,7 +9,7 @@ class FlowersApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(debugShowCheckedModeBanner:false,
-      home:SplashScreen(),
+      home:SplashScreenPage(),
     );
   }
 }
