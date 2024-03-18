@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'autorization_screen.dart';
-import 'package:lilar_test_app/assets_provider/images.dart';
+import '../assets_provider/images.dart';
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
 

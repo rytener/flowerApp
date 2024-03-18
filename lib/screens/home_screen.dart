@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lilar_test_app/assets_provider/colors.dart';
-import 'package:lilar_test_app/assets_provider/icons.dart';
-import 'package:lilar_test_app/assets_provider/text_styles.dart';
-import 'package:lilar_test_app/products/products_list.dart';
-import 'package:lilar_test_app/ui/navigationbar/bottom_nav_bar.dart';
-import 'package:lilar_test_app/ui/products_cards/home_products.dart';
+import '../assets_provider/colors.dart';
+import '../assets_provider/icons.dart';
+import '../assets_provider/text_styles.dart';
+import '../products/products_list.dart';
+import '../ui/navigation_bar/bottom_nav_bar.dart';
+import '../ui/home_screen_ui/products_cards/home_products.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -177,7 +177,7 @@ class _HomePage extends State<HomePage> {
           );
         },
       ),
-      bottomNavigationBar: const BottomNavBar(),
+      bottomNavigationBar: BottomNavBar(homeIcon: FlowerAppIcons.icHomeFilled,homeSelected: true,),
     );
   }
 }

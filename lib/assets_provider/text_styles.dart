@@ -1,3 +1,5 @@
+
+
 import 'colors.dart';
 import 'package:flutter/material.dart';
 
@@ -44,5 +46,17 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w500,
     fontSize: 12.0,
     color: AppColors.greyText,
+  );
+  static const userProfileContainerText = TextStyle(
+    fontFamily: 'Lato-Regular',
+    fontWeight: FontWeight.w600,
+    fontSize: 16.0,
+    color: AppColors.mainDarkGreen,
+  );
+   static const appBarLabels = TextStyle(
+     fontFamily:'Lato',
+    fontWeight: FontWeight.w600,
+    fontSize: 18.0,
+    color: AppColors.color9,
   );
 }

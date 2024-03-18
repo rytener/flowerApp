@@ -1,5 +1,5 @@
-import 'package:lilar_test_app/ui/buttons/base_button.dart';
-import 'package:lilar_test_app/screens/home_screen.dart';
+import '../ui/buttons/base_button.dart';
+import '../screens/home_screen.dart';
 import '../assets_provider/strings.dart';
 import 'package:flutter/material.dart';
 
