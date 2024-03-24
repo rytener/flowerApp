@@ -3,7 +3,7 @@ import 'package:lilar_test_app/assets_provider/colors.dart';
 import 'package:lilar_test_app/assets_provider/text_styles.dart';
 import 'package:lilar_test_app/assets_provider/icons.dart';
 
-class AppBarContainers extends StatelessWidget {
+final class AppBarContainers extends StatelessWidget {
   double sizeHeight;
   double sizeWidth;
   double radius;

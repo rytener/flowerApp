@@ -6,14 +6,9 @@ import '../products/products_list.dart';
 import '../ui/navigation_bar/bottom_nav_bar.dart';
 import '../ui/home_screen_ui/products_cards/home_products.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePage();
-}
-
-class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

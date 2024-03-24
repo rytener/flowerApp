@@ -9,7 +9,7 @@ import 'package:lilar_test_app/screens/user_profile_screen.dart';
 import '../../assets_provider/icons.dart';
 import '../../assets_provider/strings.dart';
 
-class BottomNavBar extends StatelessWidget {
+final class BottomNavBar extends StatelessWidget {
   IconData homeIcon;
   IconData shopBagIcon;
   IconData favoriteIcon;
