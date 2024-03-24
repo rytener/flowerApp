@@ -12,7 +12,9 @@ class ShopingBagPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(centerTitle: true,
-        title: const Text(AppStrings.shopBagLabel,style: AppTextStyles.appBarLabels,),
+        title: const Text(AppStrings.shopBagLabel,
+          style: AppTextStyles.appBarLabels,
+        ),
       ),
       bottomNavigationBar: BottomNavBar(shopBagIcon: FlowerAppIcons.icShoppingBagFilled,shopBagSelected: true,),
       backgroundColor: AppColors.color15,

@@ -12,22 +12,29 @@ class ProfileContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      child: Row(mainAxisSize: MainAxisSize.min,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Expanded(
-            child: Container(alignment: Alignment.topLeft,
+            child: Container(
+              alignment: Alignment.topLeft,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: AppColors.color6,
               ),
               child: Padding(
                 padding: const EdgeInsets.all(14.0),
-                child: Row(mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       text,
                       style: AppTextStyles.userProfileContainerText,
-                    ),const Icon(FlowerAppIcons.icNext,color: AppColors.greyText,)
+                    ),
+                    const Icon(
+                      FlowerAppIcons.icNext,
+                      color: AppColors.greyText,
+                    )
                   ],
                 ),
               ),

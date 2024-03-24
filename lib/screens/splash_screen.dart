@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'autorization_screen.dart';
 import '../assets_provider/images.dart';
+
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({super.key});
 
@@ -28,7 +29,7 @@ class _SplashScreenPage extends State<SplashScreenPage> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          constraints:  const BoxConstraints.expand(height: double.infinity),
+          constraints: const BoxConstraints.expand(height: double.infinity),
           child: const Image(
             image: AssetImage(AppImages.splash),
             fit: BoxFit.cover,

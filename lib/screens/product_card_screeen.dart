@@ -9,7 +9,6 @@ class ProductCardPage extends StatelessWidget {
       child: Scaffold(
         body: Container(
           constraints: const BoxConstraints.expand(height: double.infinity),
-
         ),
       ),
     );

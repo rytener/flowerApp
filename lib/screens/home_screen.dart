@@ -5,6 +5,7 @@ import '../assets_provider/text_styles.dart';
 import '../products/products_list.dart';
 import '../ui/navigation_bar/bottom_nav_bar.dart';
 import '../ui/home_screen_ui/products_cards/home_products.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -177,8 +178,10 @@ class _HomePage extends State<HomePage> {
           );
         },
       ),
-      bottomNavigationBar: BottomNavBar(homeIcon: FlowerAppIcons.icHomeFilled,homeSelected: true,),
+      bottomNavigationBar: BottomNavBar(
+        homeIcon: FlowerAppIcons.icHomeFilled,
+        homeSelected: true,
+      ),
     );
   }
 }
-

@@ -1,21 +1,26 @@
 import 'package:equatable/equatable.dart';
 
-
-abstract class ProductEvent extends Equatable{
+abstract class ProductEvent extends Equatable {
   const ProductEvent();
 
   @override
-  List<Object> get props =>[];
+  List<Object> get props => [];
 }
-class ProductLike extends ProductEvent{
-  final bool product;
-  const ProductLike(this.product);
+
+class ProductLike extends ProductEvent {
+  final bool isFavourite;
+
+  const ProductLike(this.isFavourite);
+
   @override
-  List<Object> get props =>[product];
+  List<Object> get props => [isFavourite];
 }
-class ProductDislike extends ProductEvent{
-  final bool product;
-  const ProductDislike(this.product);
+
+class ProductDislike extends ProductEvent {
+  final bool isFavourite;
+
+  const ProductDislike(this.isFavourite);
+
   @override
-  List<Object> get props =>[product];
+  List<Object> get props => [isFavourite];
 }

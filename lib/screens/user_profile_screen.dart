@@ -24,11 +24,11 @@ class UserProfilePage extends StatelessWidget {
       backgroundColor: AppColors.color15,
       body: const Column(
         children: [
-          ProfileContainer(text: 'Адреса'),
-          ProfileContainer(text: 'Адреса'),
-          ProfileContainer(text: 'Адреса'),
-          ProfileContainer(text: 'Адреса'),
-          ProfileContainer(text: 'Адреса'),
+          ProfileContainer(text: AppStrings.profileFirstContainer),
+          ProfileContainer(text: AppStrings.profileSecondContainer),
+          ProfileContainer(text: AppStrings.profileThirdContainer),
+          ProfileContainer(text: AppStrings.profileFourthContainer),
+          ProfileContainer(text: AppStrings.profileFifthContainer),
         ],
       ),
     );

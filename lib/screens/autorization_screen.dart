@@ -1,8 +1,10 @@
+import 'package:lilar_test_app/assets_provider/colors.dart';
+import 'package:lilar_test_app/assets_provider/text_styles.dart';
+
 import '../ui/buttons/base_button.dart';
 import '../screens/home_screen.dart';
 import '../assets_provider/strings.dart';
 import 'package:flutter/material.dart';
-
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -12,7 +14,10 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         shadowColor: Colors.black,
-        title: AppStrings.autharization,
+        title: const Text(
+          AppStrings.autharization,
+          style: AppTextStyles.appBarLabels,
+        ),
         centerTitle: true,
       ),
       body: Center(
@@ -21,25 +26,41 @@ class LoginPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AppStrings.welcome,
-              const SizedBox(height: 20.0),
-              const TextField(
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  prefixText: '+7 ',
-                  prefixStyle: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.red,
-                      width: 1.0,
-                    ),
+              const Text(
+                AppStrings.welcomeTitle,
+                style: AppTextStyles.welcomeTitleText,
+              ),
+              const SizedBox(
+                height: 16.0,
+              ),
+              const Text(
+                AppStrings.welcomeSubtitle,
+                style: AppTextStyles.welcomeSubtitleText,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 48.0),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: AppColors.buttonShadow,
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 2, bottom: 4),
+                  child: TextField(
+                    keyboardType: TextInputType.phone,
+                    decoration: InputDecoration(
+                        hintText: AppStrings.loginHint,
+                        hintStyle: AppTextStyles.loginHintText,
+                        prefixText: '+7',
+                        prefixStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        border: InputBorder.none),
                   ),
                 ),
               ),
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 72.0),
               BaseButton(
                 title: AppStrings.login,
                 onPressed: () {

@@ -25,9 +25,9 @@ class BottomNavBar extends StatelessWidget {
       this.favoriteIcon = FlowerAppIcons.icFavorite,
       this.profileIcon = FlowerAppIcons.icProfile,
       this.homeSelected = false,
-        this.shopBagSelected = false,
-        this.favoriteSelected = false,
-        this.profileSelected = false,
+      this.shopBagSelected = false,
+      this.favoriteSelected = false,
+      this.profileSelected = false,
       super.key});
 
   @override
