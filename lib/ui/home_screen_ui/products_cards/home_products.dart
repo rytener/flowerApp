@@ -4,18 +4,16 @@ import 'package:lilar_test_app/assets_provider/text_styles.dart';
 import 'package:lilar_test_app/assets_provider/icons.dart';
 
 final class AppBarContainers extends StatelessWidget {
-  double sizeHeight;
-  double sizeWidth;
-  double radius;
-  Color selectedColor;
-  Color unselectedColor;
-  TextStyle style;
+  final double sizeHeight;
+  final double sizeWidth;
+  final double radius;
+  final Color selectedColor;
+  final Color unselectedColor;
+  final TextStyle style;
   final String text;
+  final bool isSelected;
 
-  // final VoidCallback onPressed;
-  bool isSelected;
-
-  AppBarContainers({
+  const AppBarContainers({
     this.sizeHeight = 40,
     this.style = AppTextStyles.latoRegularGreen600,
     required this.sizeWidth,

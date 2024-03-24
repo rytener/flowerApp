@@ -6,8 +6,8 @@ import '../products/products_list.dart';
 import '../ui/navigation_bar/bottom_nav_bar.dart';
 import '../ui/home_screen_ui/products_cards/home_products.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePageState extends StatelessWidget {
+  const HomePageState({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -173,7 +173,7 @@ class HomePage extends StatelessWidget {
           );
         },
       ),
-      bottomNavigationBar: BottomNavBar(
+      bottomNavigationBar: const BottomNavBar(
         homeIcon: FlowerAppIcons.icHomeFilled,
         homeSelected: true,
       ),

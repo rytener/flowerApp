@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MyModal {
   String get id => throw _privateConstructorUsedError;
+
   String get name => throw _privateConstructorUsedError;
+
   int? get age => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -28,6 +30,7 @@ mixin _$MyModal {
 abstract class $MyModalCopyWith<$Res> {
   factory $MyModalCopyWith(MyModal value, $Res Function(MyModal) then) =
       _$MyModalCopyWithImpl<$Res, MyModal>;
+
   @useResult
   $Res call({String id, String name, int? age});
 }
@@ -39,6 +42,7 @@ class _$MyModalCopyWithImpl<$Res, $Val extends MyModal>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -71,6 +75,7 @@ abstract class _$$MyModalImplCopyWith<$Res> implements $MyModalCopyWith<$Res> {
   factory _$$MyModalImplCopyWith(
           _$MyModalImpl value, $Res Function(_$MyModalImpl) then) =
       __$$MyModalImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({String id, String name, int? age});
@@ -153,10 +158,13 @@ abstract class _MyModal implements MyModal {
 
   @override
   String get id;
+
   @override
   String get name;
+
   @override
   int? get age;
+
   @override
   @JsonKey(ignore: true)
   _$$MyModalImplCopyWith<_$MyModalImpl> get copyWith =>

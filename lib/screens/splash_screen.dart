@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'autorization_screen.dart';
 import '../assets_provider/images.dart';
 
-class SplashScreenPage extends StatefulWidget {
-  const SplashScreenPage({super.key});
+class SplashScreenPageState extends StatefulWidget {
+  const SplashScreenPageState({super.key});
 
   @override
-  State<SplashScreenPage> createState() => _SplashScreenPage();
+  State<SplashScreenPageState> createState() => _SplashScreenPageState();
 }
 
-class _SplashScreenPage extends State<SplashScreenPage> {
+class _SplashScreenPageState extends State<SplashScreenPageState> {
   @override
   void initState() {
     super.initState();
@@ -18,7 +18,7 @@ class _SplashScreenPage extends State<SplashScreenPage> {
       const Duration(seconds: 2),
       () => Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (_) => const LoginPage(),
+          builder: (_) => const LoginPageState(),
         ),
       ),
     );

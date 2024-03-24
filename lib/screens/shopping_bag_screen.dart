@@ -5,18 +5,23 @@ import '../assets_provider/colors.dart';
 import '../assets_provider/icons.dart';
 import '../ui/navigation_bar/bottom_nav_bar.dart';
 
-class ShopingBagPage extends StatelessWidget {
-  const ShopingBagPage({super.key});
+class ShoppingBagPageState extends StatelessWidget {
+  const ShoppingBagPageState({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true,
-        title: const Text(AppStrings.shopBagLabel,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          AppStrings.shopBagLabel,
           style: AppTextStyles.appBarLabels,
         ),
       ),
-      bottomNavigationBar: BottomNavBar(shopBagIcon: FlowerAppIcons.icShoppingBagFilled,shopBagSelected: true,),
+      bottomNavigationBar: const BottomNavBar(
+        shopBagIcon: FlowerAppIcons.icShoppingBagFilled,
+        shopBagSelected: true,
+      ),
       backgroundColor: AppColors.color15,
     );
   }

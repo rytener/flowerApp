@@ -10,16 +10,16 @@ import '../../assets_provider/icons.dart';
 import '../../assets_provider/strings.dart';
 
 final class BottomNavBar extends StatelessWidget {
-  IconData homeIcon;
-  IconData shopBagIcon;
-  IconData favoriteIcon;
-  IconData profileIcon;
-  bool homeSelected;
-  bool shopBagSelected;
-  bool favoriteSelected;
-  bool profileSelected;
+  final IconData homeIcon;
+  final IconData shopBagIcon;
+  final IconData favoriteIcon;
+  final IconData profileIcon;
+  final bool homeSelected;
+  final bool shopBagSelected;
+  final bool favoriteSelected;
+  final bool profileSelected;
 
-  BottomNavBar(
+  const BottomNavBar(
       {this.homeIcon = FlowerAppIcons.icHome,
       this.shopBagIcon = FlowerAppIcons.icShoppingBag,
       this.favoriteIcon = FlowerAppIcons.icFavorite,
@@ -43,25 +43,25 @@ final class BottomNavBar extends StatelessWidget {
               NavigationButton(
                 icon: homeIcon,
                 label: AppStrings.homeLabel,
-                screen: const HomePage(),
+                screen: const HomePageState(),
                 isSelected: homeSelected,
               ),
               NavigationButton(
                 icon: shopBagIcon,
                 label: AppStrings.shopBagLabel,
-                screen: const ShopingBagPage(),
+                screen: const ShoppingBagPageState(),
                 isSelected: shopBagSelected,
               ),
               NavigationButton(
                 icon: favoriteIcon,
                 label: AppStrings.favoriteLabel,
-                screen: const FavouritesPage(),
+                screen: const FavouritesPageState(),
                 isSelected: favoriteSelected,
               ),
               NavigationButton(
                 icon: profileIcon,
                 label: AppStrings.profileLabel,
-                screen: const UserProfilePage(),
+                screen: const UserProfilePageState(),
                 isSelected: profileSelected,
               ),
             ],
@@ -72,13 +72,13 @@ final class BottomNavBar extends StatelessWidget {
   }
 }
 
-class NavigationButton extends StatelessWidget {
+final class NavigationButton extends StatelessWidget {
   final IconData icon;
   final String label;
   final dynamic screen;
-  bool? isSelected;
+  final bool? isSelected;
 
-  NavigationButton(
+  const NavigationButton(
       {required this.icon,
       required this.label,
       required this.screen,

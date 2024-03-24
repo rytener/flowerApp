@@ -5,8 +5,8 @@ import '../assets_provider/icons.dart';
 import '../ui/navigation_bar/bottom_nav_bar.dart';
 import '../assets_provider/text_styles.dart';
 
-class FavouritesPage extends StatelessWidget {
-  const FavouritesPage({super.key});
+class FavouritesPageState extends StatelessWidget {
+  const FavouritesPageState({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class FavouritesPage extends StatelessWidget {
           style: AppTextStyles.appBarLabels,
         ),
       ),
-      bottomNavigationBar: BottomNavBar(
+      bottomNavigationBar: const BottomNavBar(
         favoriteIcon: FlowerAppIcons.icFavoriteFilled,
         favoriteSelected: true,
       ),

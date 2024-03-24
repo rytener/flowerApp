@@ -6,8 +6,8 @@ import '../screens/home_screen.dart';
 import '../assets_provider/strings.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginPageState extends StatelessWidget {
+  const LoginPageState({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (_) => const HomePage(),
+                      builder: (_) => const HomePageState(),
                     ),
                   );
                 },
