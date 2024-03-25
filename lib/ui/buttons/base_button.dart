@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../assets_provider/text_styles.dart';
 
 import '../../assets_provider/colors.dart';
 
@@ -46,35 +47,13 @@ class BaseButton extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      title,
-                      style: useBoldTittle
-                          ? const TextStyle(
-                              fontFamily: 'Lato-Bold',
-                              fontWeight: FontWeight.w800,
-                              fontSize: 17.0,
-                              color: Colors.white,
-                            )
-                          : const TextStyle(
-                              fontFamily: 'Lato-Bold',
-                              fontWeight: FontWeight.w700,
-                              fontSize: 15.0,
-                              color: Colors.white,
-                            ),
-                    ),
+                    child: Text(title,
+                        style: useBoldTittle
+                            ? AppTextStyles.baseButtonText
+                            : AppTextStyles.baseButtonBoldText),
                   ),
                   if (subtitle != null)
-                    Text(
-                      subtitle!,
-                      style: const TextStyle(
-                        fontFamily: 'Lato-Bold',
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14.0,
-                        color: AppColors.likeBackground,
-                        decoration: TextDecoration.lineThrough,
-                        decorationColor: AppColors.likeBackground,
-                      ),
-                    ),
+                    Text(subtitle!, style: AppTextStyles.baseButtonTroughText),
                 ],
               ),
               if (child != null) ...[

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
+class ProductCardPageState extends StatelessWidget {
+  const ProductCardPageState({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,6 @@ class ProductCard extends StatelessWidget {
       child: Scaffold(
         body: Container(
           constraints: const BoxConstraints.expand(height: double.infinity),
-
         ),
       ),
     );
